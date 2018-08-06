@@ -23,28 +23,32 @@ class Test {
     }
 
     //объединяем одинаковые Urls и подсчитываем уникальные
-    public function getUniqUrls($url) {
+    public function getUniqUrls($url)
+    {
         $this->urls = count(array_count_values($this->matches["$url"]));
     }
 
     //Суммируем объем трафика
-    public function getSumTraffic($traffic) {
+    public function getSumTraffic($traffic)
+    {
         $this->traffic = array_sum($this->matches["$traffic"]);
     }
 
     //Считаем количество запросов от поисковиков
-    public function getCrawlers($bots) {
+    public function getCrawlers($bots)
+    {
         $this->crawlers = array_count_values(array_diff($this->matches["$bots"], array('')));
-
     }
 
     //Подсчитываем коды ответов
-    public function getStatusCodes($codes) {
+    public function getStatusCodes($codes)
+    {
         $this->statusCodes = array_count_values($this->matches["$codes"]);
     }
 
     //Подсчитываем колличесво просмотров
-    public function getViews($views) {
+    public function getViews($views)
+    {
         $this->views = count($this->matches["$views"]);
     }
 }
