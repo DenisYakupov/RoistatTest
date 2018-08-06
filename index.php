@@ -6,7 +6,7 @@ function debug($ar) {
 }
 
 class Test {
-    public $matches = [];
+    private $matches = [];
     public $views;
     public $urls;
     public $traffic;
@@ -19,7 +19,9 @@ class Test {
         if(file_exists($filename)) {
             $text = file_get_contents($filename);
             preg_match_all($pattern, $text, $this->matches);
-        } else ("Файл не найден");
+        }else {
+            exit ("Файл не найден");
+        }
     }
 
     //объединяем одинаковые Urls и подсчитываем уникальные
